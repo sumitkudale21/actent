@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
@@ -57,13 +59,18 @@
     "zod": "^3.25.71"
   },
   "devDependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.0.1",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.2",
     "eslint": "^9.30.1",
     "eslint-config-next": "^15.3.4",
     "tailwindcss": "^4",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.5",
     "typescript": "^5"
   }
