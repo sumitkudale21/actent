@@ -1,0 +1,26 @@
+name: "AI Code Review"
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Code Review by GPT
+        uses: anc95/ChatGPT-CodeReview@main
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          model: gpt-3.5-turbo
+          language: en
+          prompt: |
+            You are a senior software engineer.
+            Review the following code with focus on:
+              - Code readability
+              - Bug detection
+              - Performance improvements
+            Use clear, polite language.
+
