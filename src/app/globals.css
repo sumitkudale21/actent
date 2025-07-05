@@ -45,38 +45,61 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* === Global Backgrounds and Foregrounds === */
+  --background: oklch(100% 0 0);                     /* White background */
+  --foreground: oklch(18% 0.01 250);                 /* Deep blue-gray text */
+
+  --card: oklch(99% 0.005 250);                      /* Slightly off-white card */
+  --card-foreground: oklch(18% 0.01 250);            /* Same as main text color */
+
+  --popover: oklch(99% 0.005 250);                   /* Match card */
+  --popover-foreground: oklch(18% 0.01 250);         /* Match foreground */
+
+  /* === Primary (Button, Accent) === */
+  --primary: oklch(58% 0.24 250);                    /* ⚡ Vivid Blue - matches login button */
+  --primary-foreground: oklch(98% 0.02 250);         /* Near-white for contrast */
+
+  /* === Secondary (Subtle UI elements) === */
+  --secondary: oklch(95% 0.01 250);                  /* Light background for cards etc */
+  --secondary-foreground: oklch(28% 0.08 250);       /* Deep blue for readable text */
+
+  /* === Muted (Disabled/Hinted elements) === */
+  --muted: oklch(92% 0.01 250);                      /* Pale blue-gray */
+  --muted-foreground: oklch(48% 0.03 250);           /* Medium gray-blue for hint text */
+
+  /* === Accent (Hover, Links, Highlights) === */
+  --accent: oklch(58% 0.24 250);                     /* Reuses primary */
+  --accent-foreground: oklch(98% 0.02 250);          /* High contrast foreground */
+
+  /* === Destructive (Error/Alerts) === */
+  --destructive: oklch(57% 0.23 27);                 /* Bright red tone for errors */
+
+  /* === Border, Input, Ring === */
+  --border: oklch(86% 0.01 250);                     /* Light subtle blue border */
+  --input: oklch(94% 0.01 250);                      /* Light blue input background */
+  --ring: oklch(58% 0.24 250);                       /* Primary blue focus ring */
+
+  /* === Charts (Visual Data Colors) === */
+  --chart-1: oklch(65% 0.22 41);                     /* Green-like */
+  --chart-2: oklch(60% 0.13 185);                    /* Cyan */
+  --chart-3: oklch(40% 0.08 227);                    /* Deep Blue */
+  --chart-4: oklch(83% 0.19 84);                     /* Yellow-green */
+  --chart-5: oklch(77% 0.18 70);                     /* Orange-yellow */
+
+  /* === Sidebar Styling === */
+  --sidebar: oklch(28% 0.08 250);                    /* 🌒 Dark Blue Sidebar Background */
+  --sidebar-foreground: oklch(88% 0.03 250);         /* Light Blue Sidebar Text */
+  --sidebar-primary: oklch(58% 0.24 250);            /* Primary Blue for Sidebar Buttons/Icons */
+  --sidebar-primary-foreground: oklch(98% 0.02 250); /* White Text on Primary */
+
+  --sidebar-accent: oklch(42% 0.15 250);             /* Active Menu Item Background */
+  --sidebar-accent-foreground: oklch(97% 0.02 250);  /* Text on Active Item (almost white) */
+
+  --sidebar-border: oklch(86% 0.01 250);             /* Border separation line */
+  --sidebar-ring: oklch(58% 0.24 250);               /* Focus ring matching primary */
 }
+
 
 .dark {
   --background: oklch(0.145 0 0);
