@@ -3,6 +3,7 @@ import { z } from "zod";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { OctagonAlertIcon } from "lucide-react";
@@ -20,17 +21,19 @@ import {
   FormMessage,
   FormLabel,
 } from "@/components/ui/form";
+import { Provider } from "@radix-ui/react-tooltip";
 
-const formSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  email: z.string().email(),
-  password: z.string().min(1, { message: "Password is required" }),
-  confirmPassword: z.string().min(1, { message: "Password is required" }),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ["confirmPassword"],
-  
-})
+const formSchema = z
+  .object({
+    name: z.string().min(1, { message: "Name is required" }),
+    email: z.string().email(),
+    password: z.string().min(1, { message: "Password is required" }),
+    confirmPassword: z.string().min(1, { message: "Password is required" }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
 export const SignUpView = () => {
   const router = useRouter();
@@ -53,12 +56,33 @@ export const SignUpView = () => {
       {
         name: data.name,
         email: data.email,
-        password: data.password
+        password: data.password,
+        callbackURL:"/"
+
       },
       {
         onSuccess: () => {
           setPending(false);
-          router.push("/");
+          router.push("/sign-in");
+        },
+        onError: ({ error }) => {
+          setError(error.message);
+        },
+      }
+    );
+  };
+
+  const onSocial = (provider: 'github' | 'google') => {
+    setPending(true);
+    setError(null);
+    authClient.signIn.social(
+      {
+        provider: provider,
+        callbackURL:"/"
+      },
+      {
+        onSuccess: () => {
+          setPending(false);
         },
         onError: ({ error }) => {
           setError(error.message);
@@ -173,19 +197,21 @@ export const SignUpView = () => {
                 <div className="grid gris-cols-2 gap-4">
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("google")}
                     variant="outline"
                     className="w-full"
                     type="button"
                   >
-                    Google
+                    <FaGoogle className="mr-2" /> Google
                   </Button>
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("github")}
                     variant="outline"
                     className="w-full"
                     type="button"
                   >
-                    Github
+                    <FaGithub className="mr-2" /> Github
                   </Button>
                 </div>
                 <div className="text-center text-sm mt-4">
@@ -194,7 +220,7 @@ export const SignUpView = () => {
                     href="/sign-in"
                     className="underline underline-offset-4 hover:text-primary"
                   >
-                    Sign in
+                     Sign in
                   </Link>
                 </div>
               </div>
