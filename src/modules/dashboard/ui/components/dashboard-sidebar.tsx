@@ -14,13 +14,12 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { DashboardUserButton } from "../../dashboard-user-button";
+import { DashboardUserButton } from "./dashboard-user-button";
 
 const firstSection = [
   {

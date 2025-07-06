@@ -97,7 +97,10 @@
   --sidebar-accent-foreground: oklch(97% 0.02 250);  /* Text on Active Item (almost white) */
 
   --sidebar-border: oklch(86% 0.01 250);             /* Border separation line */
-  --sidebar-ring: oklch(58% 0.24 250);               /* Focus ring matching primary */
+  --sidebar-ring: oklch(58% 0.24 250); 
+  
+  --hover-bg: oklch(94% 0.005 250); /* Light grey with a subtle blue hue */
+
 }
 
 
