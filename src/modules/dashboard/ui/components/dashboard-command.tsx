@@ -1,4 +1,5 @@
 import {
+  CommandResponsiveDialog,
   CommandDialog,
   CommandInput,
   CommandList,
@@ -13,12 +14,12 @@ interface Props {
 
 export const DashboardCommand = ({ open, setOpen }: Props) => {
   return (
-    <CommandDialog open={open} onOpenChange={setOpen} aria-label="Command Menu">
+    <CommandResponsiveDialog open={open} onOpenChange={setOpen} aria-label="Command Menu">
 
       <CommandInput placeholder="Find a Meeting or Agent" />
       <CommandList>
         <CommandItem>Test</CommandItem>
       </CommandList>
-    </CommandDialog>
+    </CommandResponsiveDialog>
   );
 };
