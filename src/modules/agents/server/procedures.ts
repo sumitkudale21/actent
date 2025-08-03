@@ -9,9 +9,9 @@ export const agentRouter = createTRPCRouter({
       .select()
       .from( agents );
 
-      //await new Promise( resolve => setTimeout( resolve, 5000 ) ); // Simulate a delay
+      await new Promise( resolve => setTimeout( resolve, 5000 ) ); // Simulate a delay
 
-     throw new TRPCError({ code: "BAD_REQUEST"}); // Simulate an error
+    //  throw new TRPCError({ code: "BAD_REQUEST"}); // Simulate an error
 
     return data;
   } ),
